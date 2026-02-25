@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    /**
-     * Store a newly created user
-     */
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -32,9 +30,7 @@ class UserController extends Controller
         return response()->json($user, 201);
     }
 
-    /**
-     * Display user profile with wallets and balances
-     */
+
     public function show($id)
     {
         $user = User::with('wallets')->find($id);
@@ -43,7 +39,6 @@ class UserController extends Controller
             return response()->json(['message' => 'User not found'], 404);
         }
 
-        // Calculate total balance across all wallets
         $totalBalance = $user->wallets->sum('balance');
 
         return response()->json([
