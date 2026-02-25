@@ -1,0 +1,70 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "username": "@johndoe",
+            "email": "john.doe@example.com",
+            "avatar": "https://i.pravatar.cc/150?img=1",
+            "location": "New York, USA",
+            "joinDate": "2023-01-15",
+            "isActive": true,
+            "stats":  1542
+        },
+        {
+            "id": 2,
+            "name": "Jane Smith",
+            "username": "@janesmith",
+            "email": "jane.smith@example.com",
+            "avatar": "https://i.pravatar.cc/150?img=2",
+            "location": "London, UK",
+            "joinDate": "2023-03-22",
+            "isActive": true,
+            "stats": 420
+        },
+        {
+            "id": 3,
+            "name": "Mike Johnson",
+            "username": "@mikej",
+            "email": "mike.johnson@example.com",
+            "avatar": "https://i.pravatar.cc/150?img=3",
+            "location": "San Francisco, USA",
+            "joinDate": "2023-06-10",
+            "isActive": true,
+            "stats": 143
+        },
+        {
+            "id": 4,
+            "name": "Sarah Williams",
+            "username": "@sarahw",
+            "email": "sarah.williams@example.com",
+            "avatar": "https://i.pravatar.cc/150?img=4",
+            "location": "Berlin, Germany",
+            "joinDate": "2023-08-05",
+            "isActive": true,
+            "stats":  654
+        },
+        {
+            "id": 5,
+            "name": "Alex Chen",
+            "username": "@alexc",
+            "email": "alex.chen@example.com",
+            "avatar": "https://i.pravatar.cc/150?img=5",
+            "location": "Singapore",
+            "joinDate": "2023-09-18",
+            "isActive": true,
+            "stats": 234
+        },
+        {
+            "id": 6,
+            "name": "Emily Brown",
+            "username": "@emilyb",
+            "email": "emily.brown@example.com",
+            "avatar": "https://i.pravatar.cc/150?img=6",
+            "location": "Toronto, Canada",
+            "joinDate": "2023-11-02",
+            "isActive": true,
+            "stats": 678
+        }
+    ]
+}
