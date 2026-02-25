@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'EB Garamond', serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #363434;
+    --secondary-color: rgb(241, 203, 32);
+    --accent-color: rgb(143, 143, 143);
+}
