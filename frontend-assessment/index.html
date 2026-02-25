@@ -120,6 +120,74 @@
             </div>
         </div>
     </main>
+
+    <!-- Floating Chat Overlay Button -->
+    <div class="chat-overlay">
+        <button class="btn btn-success rounded-circle shadow-lg" type="button" data-bs-toggle="modal" data-bs-target="#chatModal" id="chatButton">
+            <i class="bi bi-chat-dots-fill fs-4"></i>
+        </button>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--primary-color);">
+                    <h5 class="modal-title text-white" id="chatModalLabel">
+                        <i class="bi bi-chat-dots-fill me-2 text-success"></i>
+                        Chat Support
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Chat messages container -->
+                    <div class="chat-messages mb-3" id="chatMessages">
+                        <div class="message received mb-3">
+                            <div class="message-content bg-light p-3 rounded-4 d-inline-block">
+                                <small class="text-muted d-block mb-1">Support Team</small>
+                                Hello! How can we help you today?
+                            </div>
+                            <small class="text-muted d-block mt-1">10:00 AM</small>
+                        </div>
+                        
+                        <div class="message sent mb-3 text-end">
+                            <div class="message-content bg-success text-white p-3 rounded-4 d-inline-block">
+                                I have a question about memberships
+                            </div>
+                            <small class="text-muted d-block mt-1">10:02 AM</small>
+                        </div>
+                        
+                        <div class="message received mb-3">
+                            <div class="message-content bg-light p-3 rounded-4 d-inline-block">
+                                <small class="text-muted d-block mb-1">Support Team</small>
+                                Sure! I'd be happy to help. Which membership are you interested in?
+                            </div>
+                            <small class="text-muted d-block mt-1">10:03 AM</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick reply buttons -->
+                    <div class="quick-replies mb-3">
+                        <button class="btn btn-outline-success btn-sm me-2 mb-2" onclick="addQuickReply('Foundation Membership')">Foundation</button>
+                        <button class="btn btn-outline-success btn-sm me-2 mb-2" onclick="addQuickReply('Economy Membership')">Economy</button>
+                        <button class="btn btn-outline-success btn-sm me-2 mb-2" onclick="addQuickReply('Premium Membership')">Premium</button>
+                        <button class="btn btn-outline-success btn-sm me-2 mb-2" onclick="addQuickReply('Pricing')">Pricing</button>
+                    </div>
+                    
+                    <!-- Integrated chat input -->
+                    <div class="chat-input-container">
+                        <input type="text" class="form-control chat-input-field" placeholder="Type your message..." id="chatInput">
+                        <button class="btn btn-success chat-send-btn" type="button" onclick="sendMessage()">
+                            <i class="bi bi-send-fill"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <small class="text-muted">Typically replies within 5 minutes</small>
+                </div>
+            </div>
+        </div>
+    </div>     
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="index.js"></script>
