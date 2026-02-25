@@ -2,47 +2,57 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
-    }
+        $validator = Validator::make($request->all(), [
+            'wallet_id' => 'required|exists:wallets,id',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'amount' => 'required|numeric|min:0.01',
+            'type' => 'required|in:income,expense'
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        return DB::transaction(function () use ($request) {
+            $wallet = Wallet::find($request->wallet_id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            $transaction = Transaction::create([
+                'wallet_id' => $request->wallet_id,
+                'title' => $request->title,
+                'description' => $request->description,
+                'amount' => $request->amount,
+                'type' => $request->type
+            ]);
+
+            if ($request->type === 'income') {
+                $wallet->balance += $request->amount;
+            } else { 
+                if ($wallet->balance < $request->amount) {
+                    return response()->json([
+                        'message' => 'Insufficient balance for this expense'
+                    ], 400);
+                }
+                $wallet->balance -= $request->amount;
+            }
+
+            $wallet->save();
+
+            return response()->json([
+                'transaction' => $transaction,
+                'new_balance' => $wallet->balance
+            ], 201);
+        });
     }
 }
