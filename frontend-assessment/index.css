@@ -224,3 +224,25 @@
 .user-card:nth-child(3) { animation-delay: 0.3s; }
 .user-card:nth-child(4) { animation-delay: 0.4s; }
 .user-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* info cards styling */
+.info-cards {
+    background-color: var(--primary-color);
+    border-color: var(--accent-color);
+}
+
+#info-cards-one {
+    color: var(--secondary-color);
+}
+
+#info-cards-two-header {
+    background: var(--secondary-color);
+}
+
+#info-cards-three-header {
+    background: gray;
+}
+
+#membership-details {
+    background-color: var(--secondary-color);
+}
