@@ -92,3 +92,11 @@
         font-size: 1.5rem;
     }
 }
+
+/* main content styling */
+.main-avatar-img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 12px;
+    object-fit: cover;
+}
